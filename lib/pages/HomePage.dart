@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
         title: Text("Catalog App"),
       ),
       body: ListView.builder(
+          padding: const EdgeInsets.all(16.0),
           itemCount: CatalogModel.item.length,
           itemBuilder: (context, index) {
             return ItemWidget(
