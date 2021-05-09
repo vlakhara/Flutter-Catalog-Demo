@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_f1/models/catalog.dart';
 import 'package:flutter_f1/widgets/drawer.dart';
+import 'package:flutter_f1/widgets/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   final String name = "Vipul Lakhara";
@@ -9,11 +11,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
-      body: Center(
-        child: Container(
-          child: Text("My name is $name"),
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: CatalogModel.item.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.item[index],
+            );
+          }),
       drawer: MyDrawer(),
     );
   }
