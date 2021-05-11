@@ -7,16 +7,17 @@ class HomePage extends StatelessWidget {
   final String name = "Vipul Lakhara";
   @override
   Widget build(BuildContext context) {
+    final dummyList = List.generate(1, (index) => CatalogModel.item[index]);
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
       body: ListView.builder(
           padding: const EdgeInsets.all(16.0),
-          itemCount: CatalogModel.item.length,
+          itemCount: dummyList.length,
           itemBuilder: (context, index) {
             return ItemWidget(
-              item: CatalogModel.item[index],
+              items: CatalogModel.item[index],
             );
           }),
       drawer: MyDrawer(),

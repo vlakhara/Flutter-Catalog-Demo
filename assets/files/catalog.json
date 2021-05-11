@@ -1,0 +1,20 @@
+{
+    "products": [
+        {
+            "id": "f1",
+            "name": "Cycle",
+            "decs": "It is a cycle",
+            "price": 5000,
+            "color": "#33505a",
+            "image": "products_images/pic1.png"
+        },
+        {
+            "id": "f2",
+            "name": "Airpods",
+            "decs": "Apple Airpods",
+            "price": 599,
+            "color": "#00ac51",
+            "image": "products_images/airpods.png"
+        }
+    ]
+}
