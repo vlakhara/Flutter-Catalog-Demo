@@ -16,7 +16,7 @@ class ItemWidget extends StatelessWidget {
         onTap: () {
           print("${items.name} pressed");
         },
-        leading: Image.asset(items.image),
+        leading: Image.network(items.image),
         title: Text(items.name),
         subtitle: Text(items.desc),
         trailing: Text(
