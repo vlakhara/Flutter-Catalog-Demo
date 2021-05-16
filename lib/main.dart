@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_f1/pages/HomePage.dart';
 import 'package:flutter_f1/pages/LoginPage.dart';
+import 'package:flutter_f1/pages/cartPage.dart';
 import 'package:flutter_f1/utils/routes.dart';
 import 'package:flutter_f1/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,7 @@ class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       darkTheme: MyTheme.darkTheme(context),
@@ -23,6 +24,7 @@ class myApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }
