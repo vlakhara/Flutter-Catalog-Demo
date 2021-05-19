@@ -4,7 +4,6 @@ import 'package:flutter_f1/pages/LoginPage.dart';
 import 'package:flutter_f1/pages/cartPage.dart';
 import 'package:flutter_f1/utils/routes.dart';
 import 'package:flutter_f1/widgets/themes.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(myApp());
@@ -15,11 +14,11 @@ class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/",
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
