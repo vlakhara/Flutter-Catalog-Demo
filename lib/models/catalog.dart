@@ -2,6 +2,14 @@ import 'dart:convert';
 
 class CatalogModel {
   static List<Item> items;
+
+  //get item by id
+
+  static Item getByID(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  //Get iteam by position
+  static Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
@@ -12,31 +20,22 @@ class Item {
   final String color;
   final String image;
 
-  Item({
-    this.id,
-    this.name,
-    this.desc,
-    this.price,
-    this.color,
-    this.image,
-  });
+  Item({this.id, this.name, this.desc, this.price, this.color, this.image});
 
-  Item copyWith({
-    int id,
-    String name,
-    String desc,
-    num price,
-    String color,
-    String image,
-  }) {
+  Item copyWith(
+      {int id,
+      String name,
+      String desc,
+      num price,
+      String color,
+      String image}) {
     return Item(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      desc: desc ?? this.desc,
-      price: price ?? this.price,
-      color: color ?? this.color,
-      image: image ?? this.image,
-    );
+        id: id ?? this.id,
+        name: name ?? this.name,
+        desc: desc ?? this.desc,
+        price: price ?? this.price,
+        color: color ?? this.color,
+        image: image ?? this.image);
   }
 
   Map<String, dynamic> toMap() {
@@ -46,7 +45,7 @@ class Item {
       'desc': desc,
       'price': price,
       'color': color,
-      'image': image,
+      'image': image
     };
   }
 
@@ -54,13 +53,12 @@ class Item {
     if (map == null) return null;
 
     return Item(
-      id: map['id'],
-      name: map['name'],
-      desc: map['desc'],
-      price: map['price'],
-      color: map['color'],
-      image: map['image'],
-    );
+        id: map['id'],
+        name: map['name'],
+        desc: map['desc'],
+        price: map['price'],
+        color: map['color'],
+        image: map['image']);
   }
 
   String toJson() => json.encode(toMap());
