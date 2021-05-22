@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_f1/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -5,7 +6,6 @@ import 'package:velocity_x/velocity_x.dart';
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var text;
     return Scaffold(
       backgroundColor: context.canvasColor,
       appBar: AppBar(
@@ -21,6 +21,7 @@ class CartPage extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _cartTotal extends StatelessWidget {
   final _cart = CartModel();
   @override
@@ -52,25 +53,25 @@ class _cartTotal extends StatelessWidget {
   }
 }
 
-class _cartList extends StatefulWidget {
-  @override
-  __cartListState createState() => __cartListState();
-}
-
-class __cartListState extends State<_cartList> {
+// ignore: camel_case_types
+class _cartList extends StatelessWidget {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items?.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.done),
-        trailing: IconButton(
-          icon: Icon(Icons.remove_circle_outline),
-          onPressed: () {},
-        ),
-        title: _cart.items[index].name.text.make(),
-      ),
-    );
+    return _cart.items.isEmpty
+        ? "Nothing to show".text.xl3.makeCentered()
+        : ListView.builder(
+            itemCount: _cart.items?.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: Icon(Icons.done),
+              trailing: IconButton(
+                icon: Icon(CupertinoIcons.cart_badge_minus),
+                onPressed: () {
+                  _cart.remove(_cart.items[index]);
+                },
+              ),
+              title: _cart.items[index].name.text.make(),
+            ),
+          );
   }
 }

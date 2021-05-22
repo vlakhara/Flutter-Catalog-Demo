@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                     decoration: InputDecoration(
                         hintText: "Enter Username", labelText: "Username"),
+                    // ignore: missing_return
                     validator: (value) {
                       if (value.isEmpty) {
                         return "Username cannot be empty";
@@ -62,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                         hintText: "Enter Password", labelText: "Password"),
+                    // ignore: missing_return
                     validator: (value) {
                       if (value.isEmpty) {
                         return "Password cannot be empty";

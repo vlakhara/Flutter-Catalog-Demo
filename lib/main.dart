@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_f1/core/store.dart';
 import 'package:flutter_f1/pages/HomePage.dart';
 import 'package:flutter_f1/pages/LoginPage.dart';
 import 'package:flutter_f1/pages/cartPage.dart';
 import 'package:flutter_f1/utils/routes.dart';
 import 'package:flutter_f1/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
-  runApp(myApp());
+  runApp(VxState(store: myStore(), child: myApp()));
 }
 
 // ignore: camel_case_types
